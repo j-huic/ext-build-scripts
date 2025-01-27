@@ -2,12 +2,9 @@
 
 set -e
 
-# CHANGE ACCORDINGLY
-BUILD_DIR="build" # relative path to build directory
-BASE_NAME="" # desired name of resulting build file (w/o file extension)
-IGNORE_FILE=".buildignore" # format equivalent to .gitignore
+source config.txt
 
-mkdir -p "$BUILD_DIR"
+mkdir -p "$BUILD_DIR_CHROME"
 
 if [ ! -f "$IGNORE_FILE" ]; then
     echo "Ignore file not found."
@@ -29,9 +26,9 @@ process_ignore_patterns() {
 IGNORE_PATTERNS=$(process_ignore_patterns)
 
 COUNTER=1
-OUTPUT_FILE="$BUILD_DIR/${BASE_NAME}.zip"
+OUTPUT_FILE="$BUILD_DIR_CHROME/${BASE_NAME}.zip"
 while [ -f "$OUTPUT_FILE" ]; do
-    OUTPUT_FILE="$BUILD_DIR/${BASE_NAME}_$COUNTER.zip"
+    OUTPUT_FILE="$BUILD_DIR_CHROME/${BASE_NAME}_$COUNTER.zip"
     ((COUNTER++))
 done
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IGNORE_FILE=".buildignore"
+source config.txt
 
 process_ignore_patterns() {
     while IFS= read -r line || [[ -n "$line" ]]; do
