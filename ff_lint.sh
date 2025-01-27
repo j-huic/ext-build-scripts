@@ -18,6 +18,6 @@ cp manifest_firefox.json manifest.json
 
 LINT_COMMAND="web-ext lint --ignore-files $(process_ignore_patterns)"
 
-evail $LINT_COMMAND
+eval $LINT_COMMAND
 
 cp manifest_chrome.json manifest.json
